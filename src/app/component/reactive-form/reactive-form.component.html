@@ -1,0 +1,28 @@
+<div class="form-container">
+  <form novalidate [formGroup]="myGroup" class="example-form" (ngSubmit)="onSubmit()">
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="please input name" type="text" formControlName="name" />
+      <mat-error *ngIf="myGroup.get('name').hasError('required') && myGroup.get('name').touched">
+        name is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="please input location" type="text" formControlName="location" />
+      <mat-error *ngIf="myGroup.get('location').hasError('required') && myGroup.get('location').touched">
+        location is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <input matInput [matDatepicker]="picker" placeholder="Choose a birthday" formControlName="birthday">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+      <mat-error *ngIf="myGroup.get('birthday').hasError('required') && myGroup.get('birthday').touched">
+          birthday is <strong>required</strong>
+        </mat-error>
+    </mat-form-field>
+    <br>
+    <button mat-raised-button type="submit" color="accent">Submit</button>
+  </form>
+</div>

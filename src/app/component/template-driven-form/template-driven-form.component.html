@@ -1,0 +1,27 @@
+<div class="form-container">
+  <form novalidate #f="ngForm" (ngSubmit)="onSubmit(f)" class="example-form">
+    <!-- <label>
+      <span>please input username:</span>
+      <input type="text" name="username" [ngModel]="user.username">
+    </label> -->
+
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="please input username" #username="ngModel" required minlength="6" type="text" name="username" [ngModel]="user.username">
+      <mat-error *ngIf="username.errors?.required && username.touched">
+        username is <strong>required</strong>
+      </mat-error>
+      <mat-error *ngIf="username.errors?.minlength && username.touched">
+        Miniuam of <strong>6 characters</strong>
+      </mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="please input password" #password="ngModel" required type="text" name="password" [ngModel]="user.password">
+      <mat-error *ngIf="password.errors?.required && password.touched">
+        password is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+    <br>
+    <button mat-raised-button color="primary" type="submit">Submit</button>
+  </form>
+</div>

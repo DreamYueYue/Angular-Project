@@ -1,0 +1,25 @@
+/* Structure */
+.mat-elevation-z8 {
+  width: 85%;
+  margin: 0 auto;
+
+  .title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 36px;
+  }
+
+  table {
+    width: 100%;
+
+    td {
+      width: 20%;
+    }
+
+    .mat-form-field {
+      font-size: 14px;
+      width: 100%;
+    }
+  }
+}
